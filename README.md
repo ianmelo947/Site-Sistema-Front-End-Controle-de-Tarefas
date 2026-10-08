@@ -4,49 +4,50 @@ Projeto acadêmico desenvolvido no âmbito da disciplina de desenvolvimento web,
 
 ---
 
-##  Integrantes do Grupo
+## 👥 Integrantes do Grupo
 * **Ian Melo de Souza** — Matrícula: 01564577
 * **João Matheus Lima Tenório** — Matrícula: 01926906
 * **Rafael Rodrigues** — Matrícula: 01940979
-* **Pedro Cipriano** — Matrícula:
+* **Pedro Cipriano** — Matrícula: 
 
 ---
 
-## Sobre o Projeto
-O **Alerta Verde** é uma aplicação web interativa desenvolvida para auxiliar produtores rurais e gestores de lavouras no planeamento de tarefas de campo e no acompanhamento de condições meteorológicas em tempo real. 
+##  Sobre o Projeto
+O **Alerta Verde** é uma aplicação web interativa desenvolvida para auxiliar produtores rurais e gestores de lavouras no planejamento de tarefas de campo e no acompanhamento de condições meteorológicas em tempo real. 
 
-O sistema cumpre integralmente os requisitos de um painel de controle de tarefas, permitindo o registo, visualização, alteração de estado (conclusão) e exclusão de afazeres, além de incorporar regras de negócio avançadas ligadas à agronomia (cálculo térmico, alertas de climas extremos e recomendações de irrigação baseadas em dados abertos de clima).
+O sistema cumpre integralmente os requisitos do **Cenário A (Controle de Tarefas)**, permitindo o registro, visualização, alteração de estado (conclusão) e exclusão de afazeres, além de incorporar regras de negócio avançadas ligadas à agronomia (cálculo térmico, alertas de climas extremos e recomendações de irrigação baseadas em dados abertos de clima).
 
 ---
 
-## Funcionalidades Principais
-* **Autenticação Segura:** Sistema de registo e login com validação estrita de força de senha (requisitos de caracteres especiais, maiúsculas e números) e proteção contra injeção de scripts (XSS).
+##  Funcionalidades Principais
+* **Autenticação Segura:** Sistema de registro e login com validação estrita de força de senha (requisitos de caracteres especiais, maiúsculas e números) e proteção contra injeção de scripts (XSS).
 * **Controle de Tarefas Agrícolas (Cenário A):**
   * Cadastro de novas atividades e manejos de campo (com indicação de área/lote).
-  * Listagem dinâmica de tarefas cadastradas por utilizador.
+  * Listagem dinâmica de tarefas cadastradas por usuário.
   * Marcação interativa de tarefas como concluídas (com feedback visual em tempo real e alteração de estado).
   * Exclusão e gestão individualizada de afazeres isolados por conta no `localStorage`.
 * **Monitoramento Climático (API OpenWeatherMap):** Consulta de dados meteorológicos atuais por cidade (temperatura, umidade, vento, pressão e previsão de 5 dias).
 * **Simulador Agrícola Inteligente:** 
   * Recomendações dinâmicas de irrigação estruturadas por faixas térmicas.
   * Alertas visuais automáticos de risco de perda de colheita em cenários de climas extremos.
-  * Filtro inteligente de cultivos compatíveis com base em limites térmicos de uma base agronómica integrada.
+  * Filtro inteligente de cultivos compatíveis com base em limites térmicos de uma base agronômica integrada.
   * Calculadora de estimativa de colheita.
 
 ---
 
-## Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 * **HTML5:** Estruturação semântica e acessível.
 * **CSS3:** Estilização responsiva moderna baseada em componentes (*Split Layout*, variáveis CSS e design adaptável para dispositivos móveis e desktops).
-* **JavaScript (Vanilla):** Programação orientada a objetos com classes (`class App`), manipulação avançada do DOM, escuta de eventos síncronos e assíncronos (`fetch` para consumo de REST APIs).
-* **Persistência Local:** Utilização do `localStorage` do navegador para simular uma base de dados estruturada com isolamento multiutilizador.
+* **JavaScript (Vanilla JS):** Programação orientada a objetos com classes (`class App`), manipulação avançada do DOM, escuta de eventos síncronos e assíncronos (`fetch` para consumo de REST APIs).
+* **Git & GitHub:** Versionamento do código com histórico de commits e fluxo de desenvolvimento baseado em *branches*.
+* **Persistência Local:** Utilização do `localStorage` do navegador para simular uma base de dados estruturada com isolamento multiusuário.
 
 ---
 
-## Como Executar o Projeto
-
-Como se trata de uma aplicação 100% Front-end baseada em cliente web, a execução é imediata e não requer instalação prévia de servidores de backend ou bases de dados.
-
-1. Faça o download ou clone o repositório contendo os arquivos (`index.html`, `style.css` e `app.js`).
-2. Abra a pasta no seu editor de código (como o **VS Code**).
-3. Utilize a extensão **Live Server** para iniciar um servidor local de desenvolvimento ou abra o ficheiro `index.html` diretamente no seu navegador web favorito (Chrome, Edge, Firefox ou Safari).
+##  Estrutura do Projeto
+```text
+/
+├── index.html       # Interface principal e componentes da aplicação
+├── style.css        # Estilização global, layout flex/grid e responsividade
+├── app.js           # Lógica do app, manipulação do DOM e integração com API
+└── README.md        # Documentação completa do projeto
