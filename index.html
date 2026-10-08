@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Verde - Monitoramento Agrícola</title>
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Arquivo CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- TELA DE LOGIN / CADASTRO (SPLIT LAYOUT) -->
+        <div class="auth-wrapper" id="auth-container">
+            <div class="auth-banner">
+                <h1><i class="fas fa-leaf"></i> Alerta Verde</h1>
+                <p>Monitoramento climático especializado e inteligente para a gestão agrícola.</p>
+                
+                <div class="auth-illustration">
+                    <i class="fas fa-tractor" title="Trator Agrícola"></i>
+                    <i class="fas fa-seedling" title="Planta / Broto"></i>
+                </div>
+            </div>
+
+            <div class="auth-form-side">
+                <h2 id="auth-title">Acessar Conta</h2>
+                
+                <form id="auth-form">
+                    <div class="form-group" id="name-group" style="display: none;">
+                        <label for="user-name">Nome Completo:</label>
+                        <input type="text" id="user-name" class="form-control" placeholder="Ex: Ian Melo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-email">E-mail:</label>
+                        <input type="email" id="user-email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-pass">Senha:</label>
+                        <input type="password" id="user-pass" class="form-control" placeholder="Sua senha" required>
+                        <div class="password-strength-meter" id="pass-meter">
+                            <div class="password-strength-bar" id="pass-bar"></div>
+                        </div>
+                        <div class="password-hint" id="pass-hint">Mín. 8 caracteres, maiúscula, número e símbolo (@$!%*?&).</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="auth-btn">Entrar</button>
+                </form>
+                
+                <p style="text-align: center; margin-top: 1.2rem; font-size: 0.9rem; color: #718096;">
+                    <span id="auth-toggle-text">Não tem uma conta?</span> 
+                    <a href="#" id="auth-toggle" style="color: var(--agriculture-green); font-weight: bold; text-decoration: none;">Cadastre-se</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTEÚDO DA APLICAÇÃO (PÓS-LOGIN) -->
+        <div class="app-content" id="app-content">
+            <header>
+                <h1><i class="fas fa-tractor"></i> Alerta Verde</h1>
+                <p>Sistema de Monitoramento Climático e Gestão Agrícola</p>
+                <div class="user-info">
+                    <span id="greeting-text">Olá, Usuário!</span>
+                    <button class="logout-btn" onclick="app.logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                </div>
+            </header>
+
+            <div class="tabs">
+                <button class="tab active" onclick="app.switchTab('clima', this)">Clima e Recomendações</button>
+                <button class="tab" onclick="app.switchTab('agricultura', this)">Tarefas de Manejo</button>
+            </div>
+
+            <!-- ABA 1: CLIMA -->
+            <div class="tab-content active" id="clima-tab">
+                <div class="form-group" style="display: flex; gap: 10px;">
+                    <input type="text" id="city-input" class="form-control" value="Recife" placeholder="Digite a cidade...">
+                    <button class="btn btn-primary" style="width: auto; background: var(--primary-color);" onclick="app.getWeather()"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+
+                <div class="weather-main-card">
+                    <div class="location-title" id="city-name">Recife</div>
+                    <div class="location-sub" id="location-sub"><i class="fas fa-map-marker-alt"></i> Pernambuco, BR</div>
+                    
+                    <div class="temp-display" id="temp-val">--°C</div>
+                    <div class="weather-desc-badge" id="weather-desc">Carregando dados...</div>
+
+                    <div class="weather-details-grid">
+                        <div class="detail-item">
+                            <i class="fas fa-temperature-high"></i>
+                            <span class="label">Máx / Mín</span>
+                            <span class="val" id="temp-max-min">-- / --</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-thermometer-half"></i>
+                            <span class="label">Sensação</span>
+                            <span class="val" id="feels-like">--°C</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <span class="label">Umidade</span>
+                            <span class="val" id="humidity-val">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-wind"></i>
+                            <span class="label">Vento</span>
+                            <span class="val" id="wind-val">-- km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-compress-alt"></i>
+                            <span class="label">Pressão</span>
+                            <span class="val" id="pressure-val">-- hPa</span>
+                        </div>
+                    </div>
+
+                    <div class="forecast-title">
+                        <i class="fas fa-calendar-alt"></i> Previsão para os Próximos 5 Dias
+                    </div>
+                    <div class="forecast-grid" id="forecast-grid"></div>
+                </div>
+
+                <div class="extreme-warning" id="extreme-warning-box">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem;"></i>
+                    <span>Aviso: Risco de perda de colheita devido a climas extremos!</span>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-tint"></i> Irrigação Recomendada</h4>
+                        <p id="rec-irrigation" style="margin-top: 0.5rem; font-weight: 500;">--</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-seedling"></i> Cultivos Ideais</h4>
+                        <p id="rec-crops" style="margin-top: 0.5rem; font-weight: 500;">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABA 2: TAREFAS DE MANEJO (CENÁRIO A) -->
+            <div class="tab-content" id="agricultura-tab">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-tasks"></i> Cadastrar Tarefa Agrícola</h3>
+                        <form id="crop-form" onsubmit="app.addCrop(event)">
+                            <div class="form-group">
+                                <label>Atividade / Manejo:</label>
+                                <input type="text" id="crop-name" class="form-control" placeholder="Ex: Regar Talhão de Milho" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Área / Lote (m²):</label>
+                                <input type="number" id="crop-area" class="form-control" placeholder="Ex: 500" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="background: var(--primary-color);">Salvar Tarefa</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h3><i class="fas fa-clipboard-list"></i> Tarefas Cadastradas</h3>
+                        <div id="crops-list" style="margin-top: 10px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                Alerta Verde &copy; 2026 - Projeto desenvolvido por Ian Melo, Rafael Rodrigues e João Matheus
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- Arquivo JavaScript Externo -->
+    <script src="app.js"></script>
+</body>
+</html>

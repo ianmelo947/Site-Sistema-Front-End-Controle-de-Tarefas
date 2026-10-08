@@ -1,0 +1,442 @@
+:root {
+    --primary-color: #2c5282;
+    --secondary-color: #4299e1;
+    --success-color: #38a169;
+    --warning-color: #dd6b20;
+    --danger-color: #e53e3e;
+    --light-bg: #f0f8ff;
+    --card-bg: #ffffff;
+    --agriculture-green: #2d7d32;
+    --dark-green: #1b5e20;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: #2d3748;
+    line-height: 1.6;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* AUTH / LOGIN SCREEN */
+.auth-wrapper {
+    display: flex;
+    min-height: 540px;
+    width: 100%;
+}
+
+.auth-banner {
+    flex: 1;
+    background: linear-gradient(135deg, var(--agriculture-green), var(--dark-green));
+    color: white;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-banner::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+}
+
+.auth-banner h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-banner p {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 300px;
+    margin-bottom: 2rem;
+}
+
+.auth-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.auth-illustration i.fa-tractor {
+    font-size: 3.5rem;
+    color: #ffffff;
+}
+
+.auth-illustration i.fa-seedling {
+    font-size: 2.8rem;
+    color: #81c784;
+}
+
+.auth-form-side {
+    flex: 1;
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+}
+
+.auth-form-side h2 {
+    color: var(--agriculture-green);
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+/* APP CONTENT */
+.app-content { 
+    display: none; 
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--agriculture-green));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.user-info {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* TABS */
+.tabs { 
+    display: flex; 
+    background: var(--secondary-color); 
+}
+
+.tab {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tab.active { 
+    background: var(--primary-color); 
+}
+
+.tab-content { 
+    display: none; 
+    padding: 1.5rem; 
+}
+
+.tab-content.active { 
+    display: block; 
+}
+
+/* FORMS & INPUTS */
+.form-group { 
+    margin-bottom: 1rem; 
+}
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 0.3rem; 
+    font-weight: bold; 
+    color: #4a5568; 
+    font-size: 0.9rem; 
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* STRENGTH METER */
+.password-strength-meter {
+    height: 5px;
+    width: 100%;
+    background: #e2e8f0;
+    border-radius: 3px;
+    margin-top: 5px;
+    overflow: hidden;
+    display: none;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.password-hint {
+    font-size: 0.75rem;
+    color: #718096;
+    margin-top: 4px;
+    display: none;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary { 
+    background: var(--agriculture-green); 
+    color: white; 
+    width: 100%; 
+}
+
+.btn-primary:hover { 
+    background: var(--dark-green); 
+}
+
+.btn-danger { 
+    background: var(--danger-color); 
+    color: white; 
+    padding: 0.3rem 0.6rem; 
+    font-size: 0.8rem; 
+}
+
+/* CARDS & GRIDS */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: #f7fafc;
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--agriculture-green);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+/* ESTILO PARA TAREFA CONCLUÍDA */
+.card.completed {
+    background: #f0fff4;
+    border-left-color: var(--success-color);
+    opacity: 0.85;
+}
+
+.card.completed .task-title {
+    text-decoration: line-through;
+    color: #718096;
+}
+
+.weather-main-card {
+    background: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--agriculture-green);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+}
+
+.location-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.location-sub {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #718096;
+    margin-bottom: 0.5rem;
+}
+
+.temp-display {
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    line-height: 1.1;
+}
+
+.weather-desc-badge {
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.weather-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.detail-item {
+    background: #ffffff;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #edf2f7;
+}
+
+.detail-item i {
+    color: var(--secondary-color);
+    margin-bottom: 0.2rem;
+}
+
+.detail-item .label {
+    font-size: 0.75rem;
+    color: #718096;
+    display: block;
+}
+
+.detail-item .val {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.forecast-title {
+    margin: 1.5rem 0 0.8rem 0;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 0.8rem;
+}
+
+.forecast-card {
+    background: #ffffff;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.forecast-date {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.forecast-temp {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--agriculture-green);
+    margin: 0.3rem 0;
+}
+
+.forecast-desc {
+    font-size: 0.75rem;
+    color: #718096;
+    text-transform: capitalize;
+}
+
+.extreme-warning {
+    background: #fff5f5;
+    color: var(--danger-color);
+    border: 1px solid #feb2b2;
+    border-left: 5px solid var(--danger-color);
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+footer {
+    text-align: center; 
+    padding: 1rem; 
+    color: #718096; 
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 768px) {
+    .auth-wrapper { flex-direction: column; }
+    .auth-banner { padding: 2rem 1rem; }
+    .auth-form-side { padding: 2rem 1.5rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    body { padding: 0.5rem; }
+    .forecast-grid { grid-template-columns: repeat(2, 1fr); }
+}
