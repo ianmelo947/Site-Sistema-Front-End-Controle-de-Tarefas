@@ -17,6 +17,7 @@ O **Alerta Verde** é uma aplicação web interativa desenvolvida para auxiliar 
 
 O sistema cumpre integralmente os requisitos do **Cenário A (Controle de Tarefas)**, permitindo o registro, visualização, alteração de estado (conclusão) e exclusão de afazeres, além de incorporar regras de negócio avançadas ligadas à agronomia (cálculo térmico, alertas de climas extremos e recomendações de irrigação baseadas em dados abertos de clima).
 
+Futuramente pode ser incluido uma versão mobile rodando tanto em Android quanto IOS, com foco em mobilidade e facilidade de acesso, integração de ferramentas de acessibilidade com pessoas com defificiência, seja ela visual e/ou motora, integração com ferramentas smart como Amazon Alexa e Google Home, Apple Homekit e Samsung SmartThings entre outros para melhor performance e automação residêncial/comercial/corporativa.
 ---
 
 ## Funcionalidades Principais
