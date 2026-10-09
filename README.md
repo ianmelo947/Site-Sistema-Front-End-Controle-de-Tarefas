@@ -4,22 +4,22 @@ Projeto acadêmico desenvolvido no âmbito da disciplina de desenvolvimento web,
 
 ---
 
-## 👥 Integrantes do Grupo
+## Integrantes do Grupo
 * **Ian Melo de Souza** — Matrícula: 01564577
 * **João Matheus Lima Tenório** — Matrícula: 01926906
 * **Rafael Rodrigues** — Matrícula: 01940979
-* **Pedro Cipriano** — Matrícula: 
+* **Pedro Henrique Nascimento Cipriano** — Matrícula: 01894993
 
 ---
 
-##  Sobre o Projeto
+## Sobre o Projeto
 O **Alerta Verde** é uma aplicação web interativa desenvolvida para auxiliar produtores rurais e gestores de lavouras no planejamento de tarefas de campo e no acompanhamento de condições meteorológicas em tempo real. 
 
 O sistema cumpre integralmente os requisitos do **Cenário A (Controle de Tarefas)**, permitindo o registro, visualização, alteração de estado (conclusão) e exclusão de afazeres, além de incorporar regras de negócio avançadas ligadas à agronomia (cálculo térmico, alertas de climas extremos e recomendações de irrigação baseadas em dados abertos de clima).
 
 ---
 
-##  Funcionalidades Principais
+## Funcionalidades Principais
 * **Autenticação Segura:** Sistema de registro e login com validação estrita de força de senha (requisitos de caracteres especiais, maiúsculas e números) e proteção contra injeção de scripts (XSS).
 * **Controle de Tarefas Agrícolas (Cenário A):**
   * Cadastro de novas atividades e manejos de campo (com indicação de área/lote).
@@ -35,7 +35,7 @@ O sistema cumpre integralmente os requisitos do **Cenário A (Controle de Tarefa
 
 ---
 
-##  Tecnologias Utilizadas
+## Tecnologias Utilizadas
 * **HTML5:** Estruturação semântica e acessível.
 * **CSS3:** Estilização responsiva moderna baseada em componentes (*Split Layout*, variáveis CSS e design adaptável para dispositivos móveis e desktops).
 * **JavaScript (Vanilla JS):** Programação orientada a objetos com classes (`class App`), manipulação avançada do DOM, escuta de eventos síncronos e assíncronos (`fetch` para consumo de REST APIs).
@@ -44,7 +44,7 @@ O sistema cumpre integralmente os requisitos do **Cenário A (Controle de Tarefa
 
 ---
 
-##  Estrutura do Projeto
+## Estrutura do Projeto
 ```text
 /
 ├── index.html       # Interface principal e componentes da aplicação
