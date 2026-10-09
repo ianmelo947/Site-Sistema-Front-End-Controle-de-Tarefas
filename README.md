@@ -1,6 +1,6 @@
 # **Sistema de Monitoramento Climático e Gestão de Tarefas Agrícolas**
 
-#### Projeto acadêmico desenvolvido no âmbito da disciplina de desenvolvimento web, enquadrado no **Cenário A (Controle de Tarefas)** e integrado com automação de monitoramento meteorológico e tomada de decisão agrícola.
+#### Projeto acadêmico desenvolvido no âmbito da disciplina de Front-End Frameworks, enquadrado no **Cenário A (Controle de Tarefas)** e integrado com automação de monitoramento meteorológico e tomada de decisão agrícola.
 
 ---
 
